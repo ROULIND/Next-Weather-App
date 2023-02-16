@@ -25,11 +25,10 @@ export default function Home() {
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`
   
-  const fetchWeather = (e) => {
+  const fetchWeather = () => {
     let input = document.getElementById('search-input').value
 
     if (input){
-      e.preventDefault()
       setLoading(true)
 
     
@@ -138,12 +137,10 @@ export default function Home() {
 
         <div className='right-side'>
           <div className='right-container'>
-            <form>
               <div>
                 <input id="search-input" onChange={(e) => setCity(e.target.value)} className="search-input" type="text" placeholder='Search city' />
               </div>
               <button className='search-button' onClick={fetchWeather}><BsSearch /></button>
-            </form>
 
             <div className='tiles-section'>
 
@@ -193,10 +190,6 @@ export default function Home() {
             </div>
 
           </div>
-
-
-
-
 
         </div>
 
